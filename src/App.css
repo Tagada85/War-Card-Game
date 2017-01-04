@@ -1,0 +1,27 @@
+body {
+  height: 100%;
+}
+
+#root {
+  text-align: center;
+}
+
+.scoreboard {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.two{
+  position: fixed;
+  text-align: center;
+  bottom: 0px;
+  width: 100%;
+}
+
+.board {
+  background-color: brown;
+  width: 50%;
+  height: 25vw;
+  margin: 20px auto;
+}
