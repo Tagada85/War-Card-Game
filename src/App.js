@@ -13,12 +13,10 @@ const App= React.createClass({
     getInitialState: function(){
         return {
             playerOne: {
-                'numberOfCards': 26,
                 'wins': 0,
                 'cards': []
             },
             playerTwo: {
-                'numberOfCards': 26,
                 'wins': 0,
                 'cards' : []
             }
@@ -26,8 +24,15 @@ const App= React.createClass({
     },
     distributeCardsAtBeginningOfGame: function(){
         let deck = this.shuffle(CARDS);
-        console.log(deck);
-        return true;
+        for (let i  = 0; i < deck.length; i++) {
+            if (i % 2 == 0) {
+                this.state.playerOne.cards.push(deck[i]);
+            }else{
+                this.state.playerTwo.cards.push(deck[i]);
+            }
+        }
+
+        this.setState(this.state);
     },
     shuffle: function(cards){
         let currIdx = cards.length, temporaryValue, randomIdx;
@@ -43,20 +48,18 @@ const App= React.createClass({
 
         return cards;
     },
-    playTurn: function(){
-        this.state.playerOne.numberOfCards--;
-        this.setState(this.state);
+    componentWillMount() {
+      this.distributeCardsAtBeginningOfGame();
     },
   render: function(){
     return (
-        <div className='App'>
-            <button onClick={this.distributeCardsAtBeginningOfGame}>Start</button>
+        <div className='App' >
             <Scores 
                 scorePlayerOne={this.state.playerOne.wins} 
                 scorePlayerTwo={this.state.playerTwo.wins} />
-            <PlayerZone id='one' name="Player One" numberOfCards={this.state.playerOne.numberOfCards} playTurn={this.playTurn}/>
+            <PlayerZone id='one' name="Player One" numberOfCards={this.state.playerOne.cards.length} cards={this.state.playerOne.cards} />
             <Board />
-            <PlayerZone id='two' name="Player Two" numberOfCards={this.state.playerTwo.numberOfCards} playTurn={this.playTurn}/>
+            <PlayerZone id='two' name="Player Two" numberOfCards={this.state.playerTwo.cards.length} cards={this.state.playerTwo.cards} />
       </div>
     );
     }
