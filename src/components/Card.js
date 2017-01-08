@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Card(props){
-	let id;
+	let id, classes;
 	if(props.player == 'one'){
 		id = 'playerOneCard';
 	}else{
@@ -9,7 +9,7 @@ function Card(props){
 	}
 	return (
 		<div className="card">
-			<img id={id} src={props.cardName} />
+			<img id={id} src={props.cardName}/>
 		</div>
 	)
 }
