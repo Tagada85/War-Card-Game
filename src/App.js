@@ -167,11 +167,14 @@ const App = React.createClass({
             <Scores 
                 scorePlayerOne={this.state.playerOne.wins} 
                 scorePlayerTwo={this.state.playerTwo.wins} />
-            <PlayerZone id='one' name="Player One" numberOfCards={this.state.playerOne.cards.length} cards={this.state.playerOne.cards} />
-            <Board 
-                playerOneCard={this.state.playerOne.cardPlayed} 
-                playerTwoCard={this.state.playerTwo.cardPlayed}/>
-            <PlayerZone id='two' name="Player Two" numberOfCards={this.state.playerTwo.cards.length} cards={this.state.playerTwo.cards} />
+            <div className='playerBoard'>
+                <PlayerZone id='one' name="Player One" numberOfCards={this.state.playerOne.cards.length} cards={this.state.playerOne.cards} />
+                <Board 
+                    playerOneCard={this.state.playerOne.cardPlayed} 
+                    playerTwoCard={this.state.playerTwo.cardPlayed}/>
+                <PlayerZone id='two' name="Player Two" numberOfCards={this.state.playerTwo.cards.length} cards={this.state.playerTwo.cards} />
+                <p className='title'>THIS IS <b>WAR</b></p>
+            </div>
       </div>
     );
     }

@@ -61,20 +61,20 @@ body {
   max-height: 80%;
 }
 
-.cardAnimPlayerOne-enter {
-  opacity: 0.01;
+.playerBoard {
+  background-color: forestgreen;
+  padding: 40px 0px;
 }
 
-.cardAnimPlayerOne-enter.cardAnimPlayerOne-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
+.playerBoard:after{
+  content: '';
+  display:table;
+  clear: both;
 }
 
-.cardAnimPlayerOne-leave {
-  display:none;
-}
-
-.cardAnimPlayerOne-leave.cardAnimPlayerOne-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
+.title{
+  clear: both;
+  text-align: center;
+  font-size: 25px;
+  padding-top: 20px;
 }
