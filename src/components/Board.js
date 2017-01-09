@@ -1,15 +1,9 @@
 import React from 'react';
 import Card from './Card';
 
-function Board(props){
-	let symbolCardPlayerOne = props.playerOneCard[0];
-	let symbolCardPlayerTwo = props.playerTwoCard[0];
-	let valueCardPlayerOne = props.playerOneCard.slice(1);
-	let valueCardPlayerTwo = props.playerTwoCard.slice(1);
-	let cardPlayerOnePath = getCardPath(symbolCardPlayerOne, valueCardPlayerOne);
-	let cardPlayerTwoPath = getCardPath(symbolCardPlayerTwo, valueCardPlayerTwo);
+const Board = React.createClass({
 
-	function getCardPath(symbol, value){
+	getCardPath(symbol, value){
 		let path = './cards/';	
 		if (!isNaN(parseInt(value))){
 			path += value + '_of_';
@@ -49,13 +43,21 @@ function Board(props){
 		}
 
 		return path;
+	},
+	render: function(){
+		let symbolCardPlayerOne = this.props.playerOneCard[0];
+		let symbolCardPlayerTwo = this.props.playerTwoCard[0];
+		let valueCardPlayerOne = this.props.playerOneCard.slice(1);
+		let valueCardPlayerTwo = this.props.playerTwoCard.slice(1);
+		let cardPlayerOnePath = this.getCardPath(symbolCardPlayerOne, valueCardPlayerOne);
+		let cardPlayerTwoPath = this.getCardPath(symbolCardPlayerTwo, valueCardPlayerTwo);
+		return (
+			<div className='board'>			
+					<Card key={cardPlayerOnePath} player='one' cardName={cardPlayerOnePath} />
+					<Card key='2' player='two' cardName={cardPlayerTwoPath} />
+			</div>
+		)
 	}
-	return (
-		<div className='board'>
-			<Card player='one' cardName={cardPlayerOnePath} />
-			<Card player='two' cardName={cardPlayerTwoPath} />
-		</div>
-	)
-}
+});
 
 export default Board;

@@ -63,7 +63,7 @@ const App = React.createClass({
         this.state.playerOne.cardPlayed = playerOneCard;
         this.state.playerTwo.cardPlayed = playerTwoCard;
         this.setState(this.state);
-        setInterval(function(){
+        setTimeout(function(){
             _self.compareValues();
         }, 3000);
     },

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 function Card(props){
 	let id, classes;
@@ -11,6 +12,7 @@ function Card(props){
 		<div className="card">
 			<img id={id} src={props.cardName}/>
 		</div>
+			
 	)
 }
 

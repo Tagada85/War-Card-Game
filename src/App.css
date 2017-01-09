@@ -61,3 +61,20 @@ body {
   max-height: 80%;
 }
 
+.cardAnimPlayerOne-enter {
+  opacity: 0.01;
+}
+
+.cardAnimPlayerOne-enter.cardAnimPlayerOne-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.cardAnimPlayerOne-leave {
+  display:none;
+}
+
+.cardAnimPlayerOne-leave.cardAnimPlayerOne-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
